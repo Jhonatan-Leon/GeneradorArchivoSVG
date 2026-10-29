@@ -1,5 +1,5 @@
 # GeneradorArchivoSVG
-Programe en Elixir que genera un archivo SVG con una figura formada por círculos concéntricos, enfocando en la aplicación de la recursividad.
+Programa en Elixir que genera un archivo SVG con una figura formada por círculos concéntricos, enfocando en la aplicación de la recursividad.
 ## Tecnología
   - Elixir/OTP 29
   - Erlang 1.20.2
