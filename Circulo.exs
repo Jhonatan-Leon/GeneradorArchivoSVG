@@ -1,61 +1,76 @@
+Code.require_file("Util2.ex", __DIR__)
 defmodule Circulo do
   @moduledoc """
   Genera un archivo SVG con círculos concéntricos, aplicando
-  recursividad para la creación de los dibujos
+  recursividad para la creación de los dibujos.
 
   ## Funciones
-  - generar: calcula el tamaño, arma el SVG y lo guarda en un archivo
+  - solicitar_datos: pide los datos al usuario
+  - generar: calcula el tamaño y arma el SVG
   - dibujar: función recursiva que crea un círculo por llamada
   - circulo: genera la etiqueta <circle> de un círculo (como dibujar_celda)
   - color: define el color según el radio (como color_celda)
+  - mostrar: guarda el archivo e informa el resultado
   """
+
   @margen 10
+  @archivo "circulos.svg"
+
+  def main do
+    {cantidad, reduccion, radio} = solicitar_datos()
+    svg = generar(cantidad, reduccion, radio)
+    mostrar(svg)
+  end
+
+  def solicitar_datos do
+    IO.puts("Ingrese los datos solicitados para crear los círculos: ")
+    cantidad = Util2.ingresar("Cantidad de círculos: ", :entero)
+    reduccion = Util2.ingresar("Reducción del radio en cada círculo: ", :entero)
+    radio = Util2.ingresar("Radio del círculo inicial: ", :entero)
+
+    {cantidad, reduccion, radio}
+  end
 
   @doc """
-  generar calcula el tamaño, carga los circulos, crea el archivo y lo guarda
+  generar calcula el tamaño, carga los círculos y devuelve el texto del SVG.
 
-  ## Parametros:
-  - cantidad: cuantos circulos se van a crear ( depende del radio)
-  - reducción: cuantas reducción hay entre cada circulo
-  - radio: que radio contiene cada circulo
-  - archivo: nombre del archivo que se va a crear cuando termine el proceso
+  ## Parámetros
+  - cantidad: cuántos círculos se van a crear (depende del radio)
+  - reduccion: cuánto se resta al radio entre cada círculo
+  - radio: radio del círculo inicial
 
-  ## Ejemplo:
-  - generar(10 círculos, 15 reducción, radio 200, circulos.svg)
-  - generar(20 círculos, 8 reducción)
-  - generar(5 círculos, 30 reducción, radio 150)
-
+  ## Ejemplos
+  - generar(10, 15, 200)
+  - generar(20, 8)
+  - generar(5, 30, 150)
   """
-
-  def generar(cantidad \\ 10, reduccion \\ 15, radio \\ 200, archivo \\ "circulos.svg") do
+  def generar(cantidad \\ 10, reduccion \\ 15, radio \\ 200) do
     lado = 2 * radio + 2 * @margen
     centro = radio + @margen
 
     circulos = dibujar(centro, centro, radio, cantidad, reduccion)
 
-    svg = """
+    """
     <svg xmlns="http://www.w3.org/2000/svg"
          width="#{lado}" height="#{lado}"
          viewBox="0 0 #{lado} #{lado}">
-      <rect width="100%" height="100%" fill="currentColor"/>
+      <rect width="100%" height="100%" fill="black"/>
     #{circulos}</svg>
     """
-
-    File.write!(archivo, svg)
-    IO.puts("Imagen creada: #{archivo}")
   end
 
   @doc """
-    dibujar función que crea los circulos según las llamadas establecidas por el usuario
+  dibujar crea los círculos de forma recursiva.
 
-    ## Parametros:
-    - centro (cx, cy): posición horizontal y posición vertical
-    - radio: Distancia del centro a un punto del circulo
-    - faltan: cuantos circulos faltan
-    - reduccion: la resta del radio en cada llamado
+  ## Parámetros
+  - cx, cy: posición horizontal y vertical del centro
+  - radio: distancia del centro a un punto del círculo
+  - faltan: cuántos círculos faltan por dibujar
+  - reduccion: lo que se resta al radio en cada llamada
   """
   def dibujar(_cx, _cy, _radio, 0, _reduccion), do: ""
   def dibujar(_cx, _cy, radio, _faltan, _reduccion) when radio <= 0, do: ""
+
   def dibujar(cx, cy, radio, faltan, reduccion) when faltan > 0 do
     siguiente_radio = radio - reduccion
 
@@ -63,7 +78,7 @@ defmodule Circulo do
       dibujar(cx, cy, siguiente_radio, faltan - 1, reduccion)
   end
 
-  # Dibujo del círculo uno por uno ( se cuenta como una celda cada creación)
+  # Dibujo de un círculo (se cuenta como una celda en cada creación)
   defp circulo(cx, cy, radio) do
     color = color(radio)
 
@@ -79,7 +94,14 @@ defmodule Circulo do
     tono = rem(round(radio * 1.8), 360)
     "hsl(#{tono}, 75%, 60%)"
   end
+
+  def mostrar(svg) do
+    File.write!(@archivo, svg)
+
+    IO.puts("\nImagen creada: #{@archivo}")
+  end
+
+
 end
 
-
-Circulo.generar(10, 20, 200)
+Circulo.main()
