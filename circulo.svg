@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="820" height="820"
+     viewBox="0 0 820 820">
+  <rect width="100%" height="100%" fill="black"/>
+  <circle cx="410" cy="410" r="400"
+          fill="none" stroke="hsl(0, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="380"
+          fill="none" stroke="hsl(324, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="360"
+          fill="none" stroke="hsl(288, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="340"
+          fill="none" stroke="hsl(252, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="320"
+          fill="none" stroke="hsl(216, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="300"
+          fill="none" stroke="hsl(180, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="280"
+          fill="none" stroke="hsl(144, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="260"
+          fill="none" stroke="hsl(108, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="240"
+          fill="none" stroke="hsl(72, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="220"
+          fill="none" stroke="hsl(36, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="200"
+          fill="none" stroke="hsl(0, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="180"
+          fill="none" stroke="hsl(324, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="160"
+          fill="none" stroke="hsl(288, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="140"
+          fill="none" stroke="hsl(252, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="120"
+          fill="none" stroke="hsl(216, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="100"
+          fill="none" stroke="hsl(180, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="80"
+          fill="none" stroke="hsl(144, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="60"
+          fill="none" stroke="hsl(108, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="40"
+          fill="none" stroke="hsl(72, 75%, 60%)"
+          stroke-width="2"/>
+  <circle cx="410" cy="410" r="20"
+          fill="none" stroke="hsl(36, 75%, 60%)"
+          stroke-width="2"/>
+</svg>
